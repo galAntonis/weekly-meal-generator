@@ -1,0 +1,33 @@
+CREATE DATABASE meals;
+
+USE meals;
+
+CREATE TABLE meal_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE breakfast_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE dinner_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE ingredients (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  item_id INT NOT NULL,
+  item_type VARCHAR(10) NOT NULL,
+  ingredient VARCHAR(255) NOT NULL,
+  ingredient_price DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES meal_items(id),
+  FOREIGN KEY (item_id) REFERENCES breakfast_items(id),
+  FOREIGN KEY (item_id) REFERENCES dinner_items(id)
+);
+
