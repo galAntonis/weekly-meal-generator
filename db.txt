@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CREATE DATABASE meals;
 
 USE meals;
@@ -194,3 +195,136 @@ INSERT INTO instructions (item_id, item_type, step, instruction)
 VALUES (2, 'meal', 2, 'In a large salad bowl, combine the lettuce, cherry tomatoes, black beans, corn, Cheddar cheese, tortilla chips, and black olives. Add the cooked ground beef and toss to combine.');
 INSERT INTO instructions (item_id, item_type, step, instruction)
 VALUES (2, 'meal', 3, 'Serve the salad with the salsa and sour cream on the side. Season with salt and black pepper to taste. Enjoy!');
+=======
+CREATE DATABASE meals;
+
+USE meals;
+
+CREATE TABLE meal_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE breakfast_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE dinner_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE ingredients (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  item_id INT NOT NULL,
+  item_type VARCHAR(10) NOT NULL,
+  ingredient VARCHAR(255) NOT NULL,
+  ingredient_price DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES meal_items(id),
+  FOREIGN KEY (item_id) REFERENCES breakfast_items(id),
+  FOREIGN KEY (item_id) REFERENCES dinner_items(id)
+);
+
+CREATE DATABASE meals;
+
+USE meals;
+
+CREATE TABLE meal_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE breakfast_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE dinner_items (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE ingredients (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  item_id INT NOT NULL,
+  item_type VARCHAR(10) NOT NULL,
+  ingredient VARCHAR(255) NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES meal_items(id),
+  FOREIGN KEY (item_id) REFERENCES breakfast_items(id),
+  FOREIGN KEY (item_id) REFERENCES dinner_items(id)
+);
+
+INSERT INTO meal_items (name, price) VALUES ('Spaghetti', 12.99);
+INSERT INTO meal_items (name, price) VALUES ('Hamburger', 9.99);
+INSERT INTO meal_items (name, price) VALUES ('Pizza', 14.99);
+INSERT INTO meal_items (name, price) VALUES ('Taco Salad', 11.99);
+INSERT INTO meal_items (name, price) VALUES ('Fried Chicken', 10.99);
+INSERT INTO meal_items (name, price) VALUES ('Grilled Salmon', 18.99);
+INSERT INTO meal_items (name, price) VALUES ('Beef Stir Fry', 13.99);
+INSERT INTO meal_items (name, price) VALUES ('Vegetable Curry', 10.99);
+INSERT INTO meal_items (name, price) VALUES ('Thai Noodles', 12.99);
+INSERT INTO meal_items (name, price) VALUES ('Sushi', 16.99);
+
+INSERT INTO breakfast_items (name, price) VALUES ('Pancakes', 4.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Scrambled Eggs', 5.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Bacon', 7.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Hash Browns', 6.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Omelette', 10.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Sausage', 8.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Toast', 3.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Fruit Salad', 9.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Yogurt', 2.99);
+INSERT INTO breakfast_items (name, price) VALUES ('Coffee', 3.99);
+
+INSERT INTO dinner_items (name, price) VALUES ('Pizza', 12.99);
+INSERT INTO dinner_items (name, price) VALUES ('Steak', 24.99);
+INSERT INTO dinner_items (name, price) VALUES ('Fried Rice', 14.99);
+INSERT INTO dinner_items (name, price) VALUES ('Chicken Curry', 11.99);
+INSERT INTO dinner_items (name, price) VALUES ('Lentil Soup', 10.99);
+INSERT INTO dinner_items (name, price) VALUES ('Vegetable Stir Fry', 18.99);
+INSERT INTO dinner_items (name, price) VALUES ('Grilled Salmon', 13.99);
+INSERT INTO dinner_items (name, price) VALUES ('Chocolate Cake', 10.99);
+INSERT INTO dinner_items (name, price) VALUES ('Spaghetti', 12.99);
+INSERT INTO dinner_items (name, price) VALUES ('Caesar Salad', 16.99);
+
+
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (1, 'meal', 'Spaghetti Pasta');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (1, 'meal', 'Tomato Sauce');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (1, 'meal', 'Ground Beef');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (1, 'meal', 'Onion');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (1, 'meal', 'Garlic');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (2, 'meal', 'Hamburger Bun');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (2, 'meal', 'Ground Beef');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (2, 'meal', 'Lettuce');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (2, 'meal', 'Tomato');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (2, 'meal', 'Pickles');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (3, 'meal', 'Pizza Dough');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (3, 'meal', 'Tomato Sauce');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (3, 'meal', 'Mozzarella Cheese');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (3, 'meal', 'Pepperoni');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (3, 'meal', 'Mushrooms');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (4, 'meal', 'Taco Shell');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (4, 'meal', 'Ground Beef');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (4, 'meal', 'Lettuce');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (4, 'meal', 'Tomato');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (4, 'meal', 'Cheese');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (5, 'meal', 'Chicken Breast');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (5, 'meal', 'Flour');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (5, 'meal', 'Eggs');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (5, 'meal', 'Breadcrumbs');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (5, 'meal', 'Salt');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (5, 'meal', 'Pepper');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (6, 'meal', 'Salmon Fillet');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (6, 'meal', 'Lemon Juice');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (6, 'meal', 'Olive Oil');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (6, 'meal', 'Salt');
+INSERT INTO ingredients (item_id, item_type, ingredient) VALUES (6, 'meal', 'Pepper');
+
+>>>>>>> aea8895eb805411bcc9fe85a94ab4bdf97fae43a
